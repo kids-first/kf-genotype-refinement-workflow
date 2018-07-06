@@ -18,9 +18,9 @@ arguments:
       -XX:GCHeapFreeLimit=10"
       CalculateGenotypePosteriors
       -R $(inputs.reference.path)
-      -O $(inputs.vqsr_vcf.nameroot).postCGP.vcf.gz
+      -O $(inputs.output_basename).postCGP.vcf.gz
       -V $(inputs.vqsr_vcf.path)
-      --supporting $(inputs.snp_sites.nameroot).vcf
+      --supporting $(inputs.snp_sites.path).vcf
       --pedigree $(inputs.ped.path)
 
 inputs:
@@ -28,6 +28,7 @@ inputs:
   snp_sites: {type: File, secondaryFiles: [.tbi]}
   vqsr_vcf: {type: File, secondaryFiles: [.tbi]}
   ped: File
+  output_basename: string
 outputs:
   output:
     type: File

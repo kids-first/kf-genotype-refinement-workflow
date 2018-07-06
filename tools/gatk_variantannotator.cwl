@@ -19,7 +19,7 @@ arguments:
       -jar /GenomeAnalysisTK.jar
       -T VariantAnnotator
       -R $(inputs.reference.path)
-      -o $(inputs.cgp_filtered_vcf.nameroot).postCGP.Gfiltered.deNovos.vcf.gz
+      -o $(inputs.output_basename).postCGP.Gfiltered.deNovos.vcf.gz
       -V $(inputs.cgp_filtered_vcf.path)
       -A PossibleDeNovo
       -ped $(inputs.ped.path)
@@ -30,6 +30,7 @@ inputs:
   snp_sites: {type: File, secondaryFiles: [.tbi]}
   cgp_filtered_vcf: {type: File, secondaryFiles: [.tbi]}
   ped: File
+  output_basename: string
 outputs:
   output:
     type: File

@@ -18,7 +18,7 @@ arguments:
       -XX:GCHeapFreeLimit=10"
       VariantFiltration
       -R $(inputs.reference.path)
-      -O $(inputs.cgp_vcf.nameroot).postCGP.Gfiltered.vcf.gz
+      -O $(inputs.output_basename).postCGP.Gfiltered.vcf.gz
       -V $(inputs.cgp_vcf.path)
       -G-filter "GQ < 20.0"
       -G-filter-name lowGQ
@@ -27,6 +27,7 @@ inputs:
   reference: {type: File, secondaryFiles: [^.dict, .fai]}
   snp_sites: {type: File, secondaryFiles: [.tbi]}
   cgp_vcf: {type: File, secondaryFiles: [.tbi]}
+  output_basename: string
 outputs:
   output:
     type: File
