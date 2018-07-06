@@ -27,7 +27,6 @@ arguments:
 
 inputs:
   reference: {type: File, secondaryFiles: [^.dict, .fai]}
-  snp_sites: {type: File, secondaryFiles: [.tbi]}
   cgp_filtered_vcf: {type: File, secondaryFiles: [.tbi]}
   ped: File
   output_basename: string
