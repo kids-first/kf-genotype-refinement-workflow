@@ -28,7 +28,6 @@ steps:
     in:
       cgp_vcf: gatk_calculategenotypeposteriors/output
       reference: reference
-      snp_sites: snp_sites
       output_basename: output_basename
     out: [output]
     run: ../tools/gatk_variantfiltration.cwl
@@ -37,7 +36,6 @@ steps:
       cgp_filtered_vcf: gatk_variantfiltration/output
       ped: ped
       reference: reference
-      snp_sites: snp_sites
       output_basename: output_basename
     out: [output]
     run: ../tools/gatk_variantannotator.cwl
