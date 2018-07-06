@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: gatk_variant_annotator
+id: gatk_variantannotator
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
