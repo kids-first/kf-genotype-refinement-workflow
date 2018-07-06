@@ -45,6 +45,6 @@ $namespaces:
   sbg: https://sevenbridges.com
 hints:
   - class: 'sbg:AWSInstanceType'
-    value: m4.xlarge;ebs-gp2;850
+    value: m4.xlarge;ebs-gp2;80
   - class: 'sbg:maxNumberOfParallelInstances'
     value: 2
