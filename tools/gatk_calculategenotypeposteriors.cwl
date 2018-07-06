@@ -20,7 +20,7 @@ arguments:
       -R $(inputs.reference.path)
       -O $(inputs.output_basename).postCGP.vcf.gz
       -V $(inputs.vqsr_vcf.path)
-      --supporting $(inputs.snp_sites.path).vcf
+      --supporting $(inputs.snp_sites.path)
       --pedigree $(inputs.ped.path)
 
 inputs:
