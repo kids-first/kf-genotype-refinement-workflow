@@ -29,3 +29,4 @@ vqsr_vcf:
   path: vqsr_vcf.vcf.gz # A recalibrated variants gvcf from VQSR
 output_basename: vqsr_vcf
 ```
+![Alt text](./genotype-refinement-workflow.png?raw=true "Workflow diagram")
