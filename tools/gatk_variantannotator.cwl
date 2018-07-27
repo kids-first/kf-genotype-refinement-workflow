@@ -23,7 +23,7 @@ arguments:
       -V $(inputs.cgp_filtered_vcf.path)
       -A PossibleDeNovo
       -ped $(inputs.ped.path)
-      --pedigreeValidationType SILENT
+      --pedigreeValidationType STRICT
 
 inputs:
   reference: {type: File, secondaryFiles: [^.dict, .fai]}
