@@ -13,7 +13,7 @@ arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      --m peddy
+      -m peddy
       -p 4
       --sites hg38
       --prefix $(inputs.output_basename)
