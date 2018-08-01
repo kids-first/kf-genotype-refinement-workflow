@@ -26,8 +26,33 @@ inputs:
   ped: File
   output_basename: string
 outputs:
-  output:
-    type: File
+  output_html:
+    type:
+      type: array
+      items: File
     outputBinding:
       glob: '*.html'
-    secondaryFiles: [.tbi, .ped, .csv, .png, .json]
+  output_json:
+    type:
+      type: array
+      items: File
+    outputBinding:
+      glob: '*.json'
+  output_csv:
+    type:
+      type: array
+      items: File
+    outputBinding:
+      glob: '*.csv'
+  output_png:
+    type:
+      type: array
+      items: File
+    outputBinding:
+      glob: '*.png'
+  output_text:
+    type:
+      type: array
+      items: File
+    outputBinding:
+      glob: '*.rel-difference'
