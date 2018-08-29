@@ -36,3 +36,4 @@ outputs:
     type: File
     outputBinding:
       glob: 'cache_loc.txt'
+      loadContents: True

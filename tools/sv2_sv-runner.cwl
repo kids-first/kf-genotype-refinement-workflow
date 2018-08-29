@@ -6,9 +6,7 @@ requirements:
   - class: ShellCommandRequirement
   - class: EnvVarRequirement
     envDef:
-      REF_CACHE:
-        valueFrom: >-
-          `cat $(inputs.cache_loc.path)`
+      REF_CACHE: $(inputs.cache_loc.contents)
   - class: ResourceRequirement
     ramMin: 3000
   - class: DockerRequirement
@@ -55,8 +53,7 @@ outputs:
     type: File
     outputBinding:
       glob: '*.vcf.gz'
-    secondaryFiles:
-      - .tbi
+    secondaryFiles: [.tbi]
   out_txt:
     type: File
     outputBinding:
