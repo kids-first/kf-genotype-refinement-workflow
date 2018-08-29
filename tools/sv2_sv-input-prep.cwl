@@ -21,6 +21,7 @@ arguments:
       && cp /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini ./
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
+      && echo $PWD/sv2.ini > ini_loc.txt
 
 inputs:
   sv2_ref: File
@@ -28,8 +29,6 @@ inputs:
 
 outputs:
   output:
-    type: string
-    outputEval:
-      valueFrom: >-
-        $PWD
-
+    type: File
+    outputBinding:
+      glob: 'ini_loc.txt'

@@ -13,7 +13,7 @@ arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini $(inputs.sv2_ann_dir)/sv2.ini
+      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini `cat $(inputs.sv2_ann_ini.path)`
       && mv sv2_genotypes/sv2_genotypes.vcf $(inputs.output_basename)_sv2_genotypes.vcf
       && bgzip -i $(inputs.output_basename)_sv2_genotypes.vcf
       && mv sv2_genotypes/sv2_genotypes.txt $(inputs.output_basename)_sv2_genotypes.txt
@@ -41,7 +41,7 @@ inputs:
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
   ped: File
   output_basename: string
-  sv2_ann_dir: string
+  sv2_ann_ini: File
 
 outputs:
   out_vcf:
