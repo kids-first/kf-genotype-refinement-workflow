@@ -29,7 +29,7 @@ outputs:
   ini_file:
     type: File
     outputBinding:
-      glob: 'svi.ini'
+      glob: 'sv2.ini'
   cache_loc:
     type: File
     outputBinding:
