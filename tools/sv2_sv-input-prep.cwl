@@ -14,7 +14,6 @@ arguments:
     shellQuote: false
     valueFrom: >-
       $(inputs.sv2_ref.path)
-      && tar -xzf $(inputs.ref_cache.path)
       && /seq_cache_populate.pl
       -root $PWD/ref_cache
       $(inputs.reference.path)
@@ -25,5 +24,4 @@ arguments:
 inputs:
   sv2_ref: File
   reference: {type: File, secondaryFiles: [.fai]}
-  ref_cache: File
 

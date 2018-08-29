@@ -7,7 +7,6 @@ requirements:
 inputs:
   sv2_ref: File
   reference: { type: File, secondaryFiles: [.fai] }
-  ref_cache: File
   input_cram:
     type:
       type: array
@@ -31,7 +30,6 @@ steps:
     in:
       sv2_ref: sv2_ref
       reference: reference
-      ref_cache: ref_cache
     out: [output]
     run: ../tools/sv2_sv-input-prep.cwl
   sv2_runner:
