@@ -7,18 +7,8 @@ requirements:
 inputs:
   sv2_ref: File
   reference: { type: File, secondaryFiles: [.fai] }
-  input_cram:
-    type:
-      type: array
-      items: File
-      secondaryFiles:
-        - .crai
-  sv_vcf:
-    type:
-      type: array
-      items: File
-    secondaryFiles:
-      - .tbi
+  input_cram: { type: File[], secondaryFiles: [.crai] }
+  sv_vcf: {type: File[], secondaryFiles: [.tbi] }
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
   ped: File
   output_basename: string
