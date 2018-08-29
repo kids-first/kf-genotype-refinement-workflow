@@ -24,9 +24,8 @@ inputs:
   ped: File
 
 outputs:
-  cgp_vcf: {type: File, outputSource: gatk_calculategenotypeposteriors/output}
-  cgp_filtered_vcf: {type: File, outputSource: gatk_variantfiltration/output}
-  cgp_filtered_denovo_vcf: {type: File, outputSource: gatk_variantannotator/output}
+  out_vcf: { type: File, outputSource: sv2_runner/out_vcf }
+  out_txt: { type: File, outputSource: sv2_runner/out_txt }
 steps:
   input_prep:
     in:
@@ -34,7 +33,7 @@ steps:
       reference: reference
       ref_cache: ref_cache
     out: [output]
-    run: ../tools/sv2_sv-input-prep.cwl.cwl
+    run: ../tools/sv2_sv-input-prep.cwl
   sv2_runner:
     in:
       input_cram: input_cram
