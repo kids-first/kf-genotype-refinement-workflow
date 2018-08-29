@@ -32,7 +32,7 @@ steps:
     in:
       sv2_ref: sv2_ref
       reference: reference
-    out: [output]
+    out: [ini_loc, cache_loc]
   sv2-sv-runner:
     run: ../tools/sv2_sv-runner.cwl
     in:
@@ -43,7 +43,7 @@ steps:
       output_basename: output_basename
       ini_loc: sv2-sv-input-prep/ini_loc
       cache_loc: sv2-sv-input-prep/cache_loc
-    out: [output]
+    out: [out_vcf, out_txt]
 $namespaces:
   sbg: https://sevenbridges.com
 
