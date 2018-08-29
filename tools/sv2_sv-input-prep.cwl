@@ -25,3 +25,10 @@ inputs:
   sv2_ref: File
   reference: {type: File, secondaryFiles: [.fai]}
 
+outputs:
+  output:
+    type: string
+    outputEval:
+      valueFrom: >-
+        $PWD
+

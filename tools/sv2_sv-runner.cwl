@@ -41,6 +41,7 @@ inputs:
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
   ped: File
   output_basename: string
+  sv2_ann_dir: string
 
 outputs:
   out_vcf:

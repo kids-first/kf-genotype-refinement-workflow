@@ -21,6 +21,7 @@ inputs:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
   ped: File
+  output_basename: string
 
 outputs:
   out_vcf: { type: File, outputSource: sv2_runner/out_vcf }
@@ -38,6 +39,8 @@ steps:
       sv_vcf: sv_vcf
       snv_vcf: snv_vcf
       ped: ped
+      output_basename: output_basename
+      sv2_ann_dir: input_prep/output
     out: [output]
     run: ../tools/sv2_sv-runner.cwl
 $namespaces:
