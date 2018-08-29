@@ -32,7 +32,7 @@ steps:
     in:
       sv2_ref: sv2_ref
       reference: reference
-    out: [ini_loc, cache_loc]
+    out: [ini_file, cache_loc]
   sv2-sv-runner:
     run: ../tools/sv2_sv-runner.cwl
     in:
@@ -41,7 +41,7 @@ steps:
       snv_vcf: snv_vcf
       ped: ped
       output_basename: output_basename
-      ini_loc: sv2-sv-input-prep/ini_loc
+      ini_file: sv2-sv-input-prep/ini_file
       cache_loc: sv2-sv-input-prep/cache_loc
     out: [out_vcf, out_txt]
 $namespaces:

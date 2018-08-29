@@ -17,7 +17,7 @@ arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini `cat $(inputs.ini_loc.path)`
+      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini $(inputs.ini_file.path)
       && mv sv2_genotypes/sv2_genotypes.vcf $(inputs.output_basename)_sv2_genotypes.vcf
       && bgzip -i $(inputs.output_basename)_sv2_genotypes.vcf
       && mv sv2_genotypes/sv2_genotypes.txt $(inputs.output_basename)_sv2_genotypes.txt
@@ -45,7 +45,7 @@ inputs:
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
   ped: File
   output_basename: string
-  ini_loc: File
+  ini_file: File
   cache_loc: File
 
 outputs:
