@@ -30,7 +30,7 @@ inputs:
         prefix: -i
         itemSeparator: " "
         separate: true
-        position: 3
+        position: 4
     secondaryFiles:
       - .crai
   sv_vcf:
@@ -41,7 +41,7 @@ inputs:
         prefix: -v
         itemSeparator: " "
         separate: true
-        position: 3
+        position: 4
     secondaryFiles:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
