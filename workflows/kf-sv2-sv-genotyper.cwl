@@ -36,6 +36,7 @@ steps:
   sv2-sv-runner:
     run: ../tools/sv2_sv-runner.cwl
     in:
+      reference: reference
       input_cram: input_cram
       sv_vcf: sv_vcf
       snv_vcf: snv_vcf

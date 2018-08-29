@@ -7,6 +7,7 @@ requirements:
   - class: EnvVarRequirement
     envDef:
       REF_CACHE: $(inputs.cache_loc.contents)
+      REF_PATH: $(inputs.reference.path)
   - class: ResourceRequirement
     ramMin: 3000
   - class: DockerRequirement
@@ -22,6 +23,7 @@ arguments:
       && bgzip -i $(inputs.output_basename)_sv2_genotypes.vcf
       && mv sv2_genotypes/sv2_genotypes.txt $(inputs.output_basename)_sv2_genotypes.txt
 inputs:
+  reference: { type: File, secondaryFiles: [.fai] }
   input_cram:
     type:
       type: array
