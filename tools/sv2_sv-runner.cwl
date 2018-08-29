@@ -14,7 +14,7 @@ arguments:
     shellQuote: false
     valueFrom: >-
       && sv2
-  - position: 2
+  - position: 3
     shellQuote: false
     valueFrom: >-
       -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini `cat $(inputs.ini_loc.path)`
@@ -30,7 +30,7 @@ inputs:
         prefix: -i
         itemSeparator: " "
         separate: true
-        position: 2
+        position: 3
     secondaryFiles:
       - .crai
   sv_vcf:
@@ -41,7 +41,7 @@ inputs:
         prefix: -v
         itemSeparator: " "
         separate: true
-        position: 2
+        position: 3
     secondaryFiles:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
