@@ -20,13 +20,10 @@ arguments:
       $(inputs.reference.path)
       && export REF_CACHE=$PWD/ref_cache/%2s/%2s/%s
       && sv2 -hg38 $(inputs.reference.path)
-      && sed -i "s,sv2_resource = None,sv2_resource = $PWD,"
+      && sed -i "s,sv2_resource = None,sv2_resource = $PWD," /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini
 
 inputs:
   sv2_ref: File
   reference: {type: File, secondaryFiles: [.fai]}
   ref_cache: File
 
-outputs:
-  output:
-    type: ["null", "int"]
