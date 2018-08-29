@@ -8,9 +8,13 @@ requirements:
     ramMin: 3000
   - class: DockerRequirement
     dockerPull: 'sv2:latest'
-baseCommand: [ export, REF_CACHE=`cat $(inputs.cache_loc.path)`, ; , sv2 ]
+baseCommand: [ export, REF_CACHE=`cat $(inputs.cache_loc.path)`]
 arguments:
   - position: 1
+    shellQuote: false
+    valueFrom: >-
+      && sv2
+  - position: 2
     shellQuote: false
     valueFrom: >-
       -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini `cat $(inputs.ini_loc.path)`
@@ -26,6 +30,7 @@ inputs:
         prefix: -i
         itemSeparator: " "
         separate: true
+        position: 2
     secondaryFiles:
       - .crai
   sv_vcf:
@@ -36,6 +41,7 @@ inputs:
         prefix: -v
         itemSeparator: " "
         separate: true
+        position: 2
     secondaryFiles:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
