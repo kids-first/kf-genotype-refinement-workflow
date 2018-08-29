@@ -13,7 +13,7 @@ arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38
+      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini $(inputs.sv2_ann_dir)/sv2.ini
       && mv sv2_genotypes/sv2_genotypes.vcf $(inputs.output_basename)_sv2_genotypes.vcf
       && bgzip -i $(inputs.output_basename)_sv2_genotypes.vcf
       && mv sv2_genotypes/sv2_genotypes.txt $(inputs.output_basename)_sv2_genotypes.txt
