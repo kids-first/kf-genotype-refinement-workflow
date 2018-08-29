@@ -40,7 +40,8 @@ steps:
       snv_vcf: snv_vcf
       ped: ped
       output_basename: output_basename
-      sv2_ann_ini: input_prep/output
+      ini_loc: input_prep/ini_loc
+      cache_loc: input_prep/cache_loc
     out: [output]
     run: ../tools/sv2_sv-runner.cwl
 $namespaces:

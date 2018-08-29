@@ -8,12 +8,12 @@ requirements:
     ramMin: 3000
   - class: DockerRequirement
     dockerPull: 'sv2:latest'
-baseCommand: [ sv2 ]
+baseCommand: [ export, REF_CACHE=`cat $(inputs.cache_loc.path)`, ; , sv2 ]
 arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini `cat $(inputs.sv2_ann_ini.path)`
+      -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini `cat $(inputs.ini_loc.path)`
       && mv sv2_genotypes/sv2_genotypes.vcf $(inputs.output_basename)_sv2_genotypes.vcf
       && bgzip -i $(inputs.output_basename)_sv2_genotypes.vcf
       && mv sv2_genotypes/sv2_genotypes.txt $(inputs.output_basename)_sv2_genotypes.txt
@@ -25,7 +25,7 @@ inputs:
       inputBinding:
         prefix: -i
         itemSeparator: " "
-        separate: false
+        separate: true
     secondaryFiles:
       - .crai
   sv_vcf:
@@ -35,13 +35,14 @@ inputs:
       inputBinding:
         prefix: -v
         itemSeparator: " "
-        separate: false
+        separate: true
     secondaryFiles:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
   ped: File
   output_basename: string
-  sv2_ann_ini: File
+  ini_loc: File
+  cache_loc: File
 
 outputs:
   out_vcf:
