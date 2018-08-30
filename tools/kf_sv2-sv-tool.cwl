@@ -25,7 +25,7 @@ arguments:
       && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -i
   - position: 2
     shellQuote: false
-    valueFrom >-
+    valueFrom: >-
       -v
   - position: 4
     shellQuote: false
