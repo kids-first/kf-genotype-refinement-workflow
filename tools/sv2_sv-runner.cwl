@@ -6,7 +6,7 @@ requirements:
   - class: ShellCommandRequirement
   - class: EnvVarRequirement
     envDef:
-      REF_CACHE: $(inputs.cache_loc.contents)
+      REF_CACHE: $(inputs.cache_loc.contents)/%2s/%2s/%s
       REF_PATH: $(inputs.reference.path)
   - class: ResourceRequirement
     ramMin: 3000

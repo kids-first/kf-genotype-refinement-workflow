@@ -17,7 +17,7 @@ arguments:
       && /seq_cache_populate.pl
       -root $PWD/ref_cache
       $(inputs.reference.path)
-      && echo $PWD/ref_cache/%2s/%2s/%s > cache_loc.txt
+      && echo $PWD/ref_cache > cache_loc.txt
       && cp /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini ./
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
