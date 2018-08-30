@@ -22,12 +22,17 @@ arguments:
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
       && cp /usr/local/lib/python2.7/dist-packages/sv2/resources/training_sets/*.pkl .
-      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini
-  - position: 3
+      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -i
+  -position: 2
+    shellQuote: false
+    valueFrom >-
+      -v
+  - position: 4
     shellQuote: false
     valueFrom: >-
-      && mv sv2_genotypes/sv2_genotypes.vcf $(inputs.output_basename)_sv2_genotypes.vcf
-      && bgzip -i $(inputs.output_basename)_sv2_genotypes.vcf
+      && cat sv2_genotypes/sv2_genotypes.vcf
+      | bgzip -c > $(inputs.output_basename)_sv2_genotypes.vcf.gz
+      && tabix $(inputs.output_basename)_sv2_genotypes.vcf.gz
       && mv sv2_genotypes/sv2_genotypes.txt $(inputs.output_basename)_sv2_genotypes.txt
 inputs:
   reference: { type: File, secondaryFiles: [.fai] }
@@ -36,7 +41,6 @@ inputs:
       type: array
       items: File
       inputBinding:
-        prefix: -i
         itemSeparator: " "
         separate: true
         position: 1
@@ -50,7 +54,7 @@ inputs:
         prefix: -v
         itemSeparator: " "
         separate: true
-        position: 2
+        position: 3
     secondaryFiles:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
