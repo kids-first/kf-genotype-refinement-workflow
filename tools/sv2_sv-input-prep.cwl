@@ -10,7 +10,6 @@ requirements:
     dockerPull: 'sv2:latest'
   - class: InitialWorkDirRequirement
     listing:
-      - $(inputs.sv2_ref)
       - $(inputs.reference)
 baseCommand: [ tar, -xzf ]
 arguments:
