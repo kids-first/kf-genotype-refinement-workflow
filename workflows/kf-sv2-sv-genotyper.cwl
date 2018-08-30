@@ -3,7 +3,6 @@ cwlVersion: v1.0
 id: kf-sv2-sv-genotyper
 requirements:
   - class: MultipleInputFeatureRequirement
-  - class: SubworkflowFeatureRequirement
 inputs:
   sv2_ref: File
   reference: { type: File, secondaryFiles: [.fai] }
