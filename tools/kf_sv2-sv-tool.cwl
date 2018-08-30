@@ -7,7 +7,7 @@ requirements:
   - class: ResourceRequirement
     ramMin: 3000
   - class: DockerRequirement
-    dockerPull: 'sv2:latest'
+    dockerPull: 'migbro/sv2:latest'
   - class: MultipleInputFeatureRequirement
 arguments:
   - position: 0
