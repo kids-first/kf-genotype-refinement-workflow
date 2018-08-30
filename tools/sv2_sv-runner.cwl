@@ -14,7 +14,6 @@ requirements:
     dockerPull: 'sv2:latest'
   - class: InitialWorkDirRequirement
     listing:
-    - $(inputs.ini_file)
     - $(inputs.reference)
 
 baseCommand: [ sv2 ]
