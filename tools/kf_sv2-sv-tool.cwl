@@ -42,7 +42,7 @@ inputs:
       items: File
       inputBinding:
         itemSeparator: " "
-        separate: true
+        separate: false
         position: 1
     secondaryFiles:
       - .crai
@@ -52,7 +52,7 @@ inputs:
       items: File
       inputBinding:
         itemSeparator: " "
-        separate: true
+        separate: false
         position: 3
     secondaryFiles:
       - .tbi
