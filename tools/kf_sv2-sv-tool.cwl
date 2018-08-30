@@ -22,8 +22,7 @@ arguments:
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
       && cp /usr/local/lib/python2.7/dist-packages/sv2/resources/training_sets/*.pkl .
-      && cp /usr/local/lib/python2.7/dist-packages/sv2/config/sv2_clf.json .
-      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -clf sv2_clf.json
+      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini
   - position: 2
     shellQuote: false
     valueFrom: >-
