@@ -23,7 +23,7 @@ arguments:
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
       && cp /usr/local/lib/python2.7/dist-packages/sv2/resources/training_sets/*.pkl .
       && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini
-  - position: 2
+  - position: 3
     shellQuote: false
     valueFrom: >-
       && mv sv2_genotypes/sv2_genotypes.vcf $(inputs.output_basename)_sv2_genotypes.vcf
@@ -50,7 +50,7 @@ inputs:
         prefix: -v
         itemSeparator: " "
         separate: true
-        position: 1
+        position: 2
     secondaryFiles:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
