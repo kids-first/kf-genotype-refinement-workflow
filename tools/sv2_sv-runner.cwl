@@ -12,6 +12,10 @@ requirements:
     ramMin: 3000
   - class: DockerRequirement
     dockerPull: 'sv2:latest'
+  InitialWorkDirRequirement:
+    listing:
+    - $(inputs.ini_file)
+    - $(inputs.reference)
 
 baseCommand: [ sv2 ]
 arguments:
