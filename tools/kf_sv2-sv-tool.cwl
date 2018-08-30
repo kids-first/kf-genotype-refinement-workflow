@@ -22,8 +22,8 @@ arguments:
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
       && cp /usr/local/lib/python2.7/dist-packages/sv2/resources/training_sets/*.pkl .
-      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini
-  - position: 3
+      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -i $(inputs.input_cram) -v $(inputs.sv_vcf)
+  - position: 2
     shellQuote: false
     valueFrom: >-
       && cat sv2_genotypes/sv2_genotypes.vcf
@@ -36,22 +36,12 @@ inputs:
     type:
       type: array
       items: File
-      inputBinding:
-        itemSeparator: " "
-        prefix: -i
-        separate: false
-        position: 1
     secondaryFiles:
       - .crai
   sv_vcf:
     type:
       type: array
       items: File
-      inputBinding:
-        itemSeparator: " "
-        prefix: -v
-        separate: false
-        position: 2
     secondaryFiles:
       - .tbi
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
