@@ -51,7 +51,6 @@ inputs:
       type: array
       items: File
       inputBinding:
-        prefix: -v
         itemSeparator: " "
         separate: true
         position: 3
