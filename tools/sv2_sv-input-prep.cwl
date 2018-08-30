@@ -8,7 +8,7 @@ requirements:
     ramMin: 1000
   - class: DockerRequirement
     dockerPull: 'sv2:latest'
-  InitialWorkDirRequirement:
+  - class: InitialWorkDirRequirement
     listing:
       - $(inputs.sv2_ref)
       - $(inputs.reference)

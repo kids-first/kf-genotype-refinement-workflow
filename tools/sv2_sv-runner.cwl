@@ -12,7 +12,7 @@ requirements:
     ramMin: 3000
   - class: DockerRequirement
     dockerPull: 'sv2:latest'
-  InitialWorkDirRequirement:
+  - class: InitialWorkDirRequirement
     listing:
     - $(inputs.ini_file)
     - $(inputs.reference)
