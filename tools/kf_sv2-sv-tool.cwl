@@ -24,7 +24,7 @@ arguments:
       && cp /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini ./
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
-  - position: 2
+  - position: 1
     shellQuote: false
     valueFrom: >-
       sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini
