@@ -12,8 +12,9 @@ requirements:
     ramMin: 3000
   - class: DockerRequirement
     dockerPull: 'sv2:latest'
+  - class: MultipleInputFeatureRequirement
 arguments:
-  - position: 1
+  - position: 0
     shellQuote: false
     valueFrom: >-
       tar -xzf $(inputs.sv2_ref.path)
