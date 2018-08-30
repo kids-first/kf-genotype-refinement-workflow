@@ -4,10 +4,6 @@ id: kf-sv2-sv-tool
 requirements:
   - class: InlineJavascriptRequirement
   - class: ShellCommandRequirement
-  - class: EnvVarRequirement
-    envDef:
-      REF_CACHE: $PWD/ref_cache/%2s/%2s/%s
-      REF_PATH: $(inputs.reference.path)
   - class: ResourceRequirement
     ramMin: 3000
   - class: DockerRequirement
@@ -21,6 +17,7 @@ arguments:
       && /seq_cache_populate.pl
       -root $PWD/ref_cache
       $(inputs.reference.path)
+      && export REF_CACHE=$PWD/ref_cache/%2s/%2s/%s
       && cp /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini ./
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
