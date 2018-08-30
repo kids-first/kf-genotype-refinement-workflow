@@ -43,9 +43,9 @@ inputs:
         prefix: -i
         itemSeparator: " "
         separate: true
+        position: 3
     secondaryFiles:
       - .crai
-    position: 3
   sv_vcf:
     type:
       type: array
@@ -54,9 +54,9 @@ inputs:
         prefix: -v
         itemSeparator: " "
         separate: true
+        position: 3
     secondaryFiles:
       - .tbi
-    position: 3
   snv_vcf: { type: File, secondaryFiles: [.tbi] }
   ped: File
   output_basename: string
