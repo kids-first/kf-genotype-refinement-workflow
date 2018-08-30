@@ -22,8 +22,32 @@ arguments:
       && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
       && cp /usr/local/lib/python2.7/dist-packages/sv2/resources/training_sets/*.pkl .
-      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -i $(inputs.input_cram) -v $(inputs.sv_vcf)
+      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -i
+  - position: 1
+    shellQuote: false
+    valueFrom: |
+      ${
+        var bams = inputs.input_cram[0].path
+        for (i = 1, i < inputs.input_cram.length, i++){
+          bams += " "+inputs.input_cram[i].path
+        }
+        return bams
+      }
   - position: 2
+    shellQuote: false
+    valueFrom: >-
+      -v
+  - position: 3
+    shellQuote: false
+    valueFrom: |
+      ${
+        var vcfs = inputs.sv_vcf[0].path
+        for (i = 1, i < inputs.sv_vcf.length, i++){
+          vcfs += " "+inputs.sv_vcf[i].path
+        }
+        return vcfs
+      }
+  - position: 4
     shellQuote: false
     valueFrom: >-
       && cat sv2_genotypes/sv2_genotypes.vcf
