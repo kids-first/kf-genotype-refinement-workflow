@@ -23,7 +23,7 @@ arguments:
       && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
       && cp /usr/local/lib/python2.7/dist-packages/sv2/resources/training_sets/*.pkl .
       && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -i
-  -position: 2
+  - position: 2
     shellQuote: false
     valueFrom >-
       -v
