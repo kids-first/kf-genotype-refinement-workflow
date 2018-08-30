@@ -28,7 +28,7 @@ arguments:
     valueFrom: |
       ${
         var bams = inputs.input_cram[0].path
-        for (i = 1, i < inputs.input_cram.length, i++){
+        for (i = 1; i < inputs.input_cram.length; i++){
           bams += " "+inputs.input_cram[i].path
         }
         return bams
@@ -42,7 +42,7 @@ arguments:
     valueFrom: |
       ${
         var vcfs = inputs.sv_vcf[0].path
-        for (i = 1, i < inputs.sv_vcf.length, i++){
+        for (i = 1; i < inputs.sv_vcf.length; i++){
           vcfs += " "+inputs.sv_vcf[i].path
         }
         return vcfs
