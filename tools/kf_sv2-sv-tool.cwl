@@ -18,12 +18,12 @@ arguments:
       -root $PWD/ref_cache
       $(inputs.reference.path)
       && export REF_CACHE=$PWD/ref_cache/%2s/%2s/%s
-      && sed -i "s,sv2_resource = None,sv2_resource = $PWD," /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini
-      && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini
+      && cp /usr/local/lib/python2.7/dist-packages/sv2/config/sv2.ini ./
+      && sed -i "s,sv2_resource = None,sv2_resource = $PWD," ./sv2.ini
+      && sed -i "s,hg38 = None,hg38 = $(inputs.reference.path)," ./sv2.ini
       && cp /usr/local/lib/python2.7/dist-packages/sv2/resources/training_sets/*.pkl .
       && cp /usr/local/lib/python2.7/dist-packages/sv2/config/sv2_clf.json .
-      && sv2 -load-clf ./sv2_clf.json
-      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38
+      && sv2 -snv $(inputs.snv_vcf.path) -p $(inputs.ped.path) -g hg38 -ini ./sv2.ini -clf sv2_clf.json
   - position: 2
     shellQuote: false
     valueFrom: >-
