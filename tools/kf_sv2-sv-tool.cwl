@@ -42,6 +42,7 @@ inputs:
       items: File
       inputBinding:
         itemSeparator: " "
+        prefix: " "
         separate: false
         position: 1
     secondaryFiles:
@@ -52,6 +53,7 @@ inputs:
       items: File
       inputBinding:
         itemSeparator: " "
+        prefix: " "
         separate: false
         position: 3
     secondaryFiles:
