@@ -8,9 +8,6 @@ requirements:
     ramMin: 1000
   - class: DockerRequirement
     dockerPull: 'sv2:latest'
-  - class: InitialWorkDirRequirement
-    listing:
-      - $(inputs.reference)
 baseCommand: [ tar, -xzf ]
 arguments:
   - position: 1
