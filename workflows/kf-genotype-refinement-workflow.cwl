@@ -45,7 +45,7 @@ steps:
     run: ../tools/gatk_variantannotator.cwl
   vep_annotate:
     in:
-      cgp_deNovo_vcf: gatk_variantannotator/output
+      input_vcf: gatk_variantannotator/output
       reference: reference
       output_basename: output_basename
       cache: cache

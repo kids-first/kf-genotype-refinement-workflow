@@ -1,12 +1,12 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: kf-vep-somatic-annotate
+id: kf-vep-annotate
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
     ramMin: 24000
-    coresMin: 8
+    coresMin: 14
   - class: DockerRequirement
     dockerPull: 'kfdrc/vep:r93'
 baseCommand: [tar, -xzf ]
@@ -25,7 +25,7 @@ arguments:
       --offline
       --hgvs
       --hgvsg
-      --fork 7
+      --fork 14
       --sift b
       --vcf_info_field ANN
       -i $(inputs.input_vcf.path)
