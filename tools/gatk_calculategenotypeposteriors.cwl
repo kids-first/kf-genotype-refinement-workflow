@@ -6,6 +6,8 @@ requirements:
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
     ramMin: 8000
+    coresMin: 2
+    coresMax: 4
   - class: DockerRequirement
     dockerPull: 'kfdrc/gatk:4.0.5.2'
 baseCommand: [/gatk]
