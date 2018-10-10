@@ -12,9 +12,6 @@ inputs:
   vqsr_vcf: File
   output_basename: string
 outputs:
-  cgp_vcf: {type: File, outputSource: gatk_calculategenotypeposteriors/output}
-  cgp_filtered_vcf: {type: File, outputSource: gatk_variantfiltration/output}
-  cgp_filtered_denovo_vcf: {type: File, outputSource: gatk_variantannotator/output}
   cgp_vep_annotated_vcf: {type: File, outputSource: vep_annotate/output_vcf}
   vcf_summary_stats: {type: File, outputSource: vep_annotate/output_txt}
   vep_warn: {type: File, outputSource: vep_annotate/warn_txt}
