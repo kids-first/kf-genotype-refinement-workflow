@@ -34,8 +34,8 @@ arguments:
       --stats_text
       --warning_file $(inputs.output_basename)_warnings.txt
       --fasta $(inputs.reference.path) |
-      /ensembl-vep/htslib/bgzip -c > $(inputs.output_basename).vep.vcf.gz
-      && /ensembl-vep/htslib/tabix $(inputs.output_basename).vep.vcf.gz
+      /ensembl-vep/htslib/bgzip -c > $(inputs.output_basename).CGP.filtered.deNovo.vep.vcf.gz
+      && /ensembl-vep/htslib/tabix $(inputs.output_basename).CGP.filtered.deNovo.vep.vcf.gz
 
 inputs:
   reference: { type: File,  secondaryFiles: [.fai], label: Fasta genome assembly with index }
