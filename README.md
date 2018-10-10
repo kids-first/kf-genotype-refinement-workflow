@@ -3,6 +3,7 @@
 ## Implementation of Broad Institute Genotype Refinement Workflow
 <a href="https://software.broadinstitute.org/gatk/documentation/article?id=11074"> Genotype Refinement workflow for germline short variants</a>
 + Note, step 4 is skipped
++ variant effect predictor run at the end to annotate vcf and get variant summary stats
 
 ## basic info
 - tool images: https://hub.docker.com/r/kfdrc/
