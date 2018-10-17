@@ -3,6 +3,7 @@
 ## Implementation of Broad Institute Genotype Refinement Workflow
 <a href="https://software.broadinstitute.org/gatk/documentation/article?id=11074"> Genotype Refinement workflow for germline short variants</a>
 + Note, step 4 is skipped
++ variant effect predictor run at the end to annotate vcf and get variant summary stats
 
 ## basic info
 - tool images: https://hub.docker.com/r/kfdrc/
@@ -21,6 +22,9 @@ ped:
 reference:
   class: File
   path: Homo_sapiens_assembly38.fasta
+cache: File
+  class: File
+  path: homo_sapiens_vep_93_GRCh38_convert_cache.tar.gz # tar gzipped vep93 cache file
 snp_sites:
   class: File
   path: 1000G_phase3_v4_20130502.sites.hg38.vcf

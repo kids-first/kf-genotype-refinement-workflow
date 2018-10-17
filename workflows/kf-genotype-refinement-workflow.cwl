@@ -7,13 +7,14 @@ requirements:
 inputs:
   ped: File
   reference: File
+  cache: File
   snp_sites: File
   vqsr_vcf: File
   output_basename: string
 outputs:
-  cgp_vcf: {type: File, outputSource: gatk_calculategenotypeposteriors/output}
-  cgp_filtered_vcf: {type: File, outputSource: gatk_variantfiltration/output}
-  cgp_filtered_denovo_vcf: {type: File, outputSource: gatk_variantannotator/output}
+  cgp_vep_annotated_vcf: {type: File, outputSource: vep_annotate/output_vcf}
+  vcf_summary_stats: {type: File, outputSource: vep_annotate/output_txt}
+  vep_warn: {type: File, outputSource: vep_annotate/warn_txt}
 steps:
   gatk_calculategenotypeposteriors:
     in:
@@ -39,10 +40,16 @@ steps:
       output_basename: output_basename
     out: [output]
     run: ../tools/gatk_variantannotator.cwl
+  vep_annotate:
+    in:
+      input_vcf: gatk_variantannotator/output
+      reference: reference
+      output_basename: output_basename
+      cache: cache
+    out: [output]
+    run: ../tools/variant_effect_predictor.cwl
 $namespaces:
   sbg: https://sevenbridges.com
 hints:
-  - class: 'sbg:AWSInstanceType'
-    value: m4.xlarge;ebs-gp2;80
   - class: 'sbg:maxNumberOfParallelInstances'
     value: 2
