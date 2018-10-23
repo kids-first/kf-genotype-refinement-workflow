@@ -1,6 +1,6 @@
 class: Workflow
 cwlVersion: v1.0
-id: kf_genotype_refinement_workflow
+id: kfdrc-genotype-refinement-workflow
 requirements:
   - class: MultipleInputFeatureRequirement
   - class: SubworkflowFeatureRequirement

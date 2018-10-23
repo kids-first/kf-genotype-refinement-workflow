@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: kf-peddy-tool
+id: kfdrc-peddy-tool
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement

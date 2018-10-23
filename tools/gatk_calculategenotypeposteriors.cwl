@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: gatk_calculategenotypeposteriors
+id: kfdrc-gatk_calculategenotypeposteriors
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
