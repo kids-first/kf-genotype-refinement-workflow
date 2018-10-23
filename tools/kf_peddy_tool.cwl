@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: kf-peddy-tool
+id: kfdrc-peddy-tool
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
@@ -32,27 +32,15 @@ outputs:
       items: File
     outputBinding:
       glob: '*.html'
-  output_json:
-    type:
-      type: array
-      items: File
-    outputBinding:
-      glob: '*.json'
   output_csv:
     type:
       type: array
       items: File
     outputBinding:
-      glob: '*.csv'
-  output_png:
+      glob: '*_check.csv'
+  output_peddy:
     type:
       type: array
       items: File
     outputBinding:
-      glob: '*.png'
-  output_text:
-    type:
-      type: array
-      items: File
-    outputBinding:
-      glob: '*.rel-difference'
+      glob: '*.peddy.ped'

@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: kf-sv2-sv-tool
+id: kfdrc-sv2-sv-tool
 requirements:
   - class: InlineJavascriptRequirement
   - class: ShellCommandRequirement

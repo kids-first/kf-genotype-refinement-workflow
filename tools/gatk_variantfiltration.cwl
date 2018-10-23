@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: gatk_variantfiltration
+id: kfdrc-gatk_variantfiltration
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
